@@ -1,0 +1,48 @@
+
+# Subject line
+# <type>(scope?): Subject
+# |<--------- Maximum of 50 characters --------->|
+
+
+# Message body that explains WHY, not HOW, this change is being made.
+# |<-------------------- Maximum of 72 characters -------------------->|
+
+
+# Message footer with links to any relevant ticket, article, web page
+# or other resource. Can be a bullet point list.
+# Example: TICKET-1234
+# |<-------------------- Maximum of 72 characters -------------------->|
+
+
+# -------------------------------- HELP --------------------------------
+#
+# Lines that start with a hash (#) are ignored in the commit message.
+#
+# For the general commit message format see
+# https://www.conventionalcommits.org/en/v1.0.0#specification
+#
+# Remember:
+# * Seperate subject from body and body from footer with a blank line
+# * Limit the subject line to 50 characters
+# * Capitalize the subject line
+# * Do not end the subject line with a period
+# * Use the imperative mood in the subject line
+# * Wrap the message body and footer at 80 characters
+# * Use the body to explain what and why instead of how
+#
+# Message type can be one of:
+# * build
+# * chore
+# * ci
+# * docs
+# * feature
+# * fix
+# * hotfix
+# * performance
+# * refactor
+# * revert
+# * style
+# * test
+#
+# For more information on how to format the commit message
+# see .commitlintrc.json.
