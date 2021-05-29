@@ -26,8 +26,16 @@
     }
   ],
   "devDependencies": {
+    "@babel/core": "7.14.3",
+    "@babel/eslint-parser": "7.14.4",
+    "@babel/preset-env": "7.14.4",
+    "@babel/preset-react": "7.13.13",
     "@commitlint/cli": "12.1.4",
     "@commitlint/config-conventional": "12.1.4",
-    "husky": "6.0.0"
+    "eslint": "7.27.0",
+    "eslint-plugin-jsdoc": "35.0.0",
+    "eslint-plugin-react": "7.23.2",
+    "husky": "6.0.0",
+    "lint-staged": "11.0.0"
   }
 }
