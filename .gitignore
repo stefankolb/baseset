@@ -1,0 +1,10 @@
+# OS specific
+.DS_Store
+
+# Node/NPM/Yarn etc.
+node_modules
+yarn.lock
+yarn-*.log
+
+# IDE
+.vscode

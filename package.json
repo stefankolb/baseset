@@ -1,0 +1,28 @@
+{
+  "name": "baseset",
+  "productName": "Base Set",
+  "version": "0.0.0",
+  "description": "Organize your sports trading card collection",
+  "private": true,
+  "keywords": [
+    "manage",
+    "organize",
+    "sports trading cards",
+    "trading cards"
+  ],
+  "homepage": "https://github.com/stefankolb/baseset",
+  "license": "SEE LICENSE IN LICENSE",
+  "maintainers": [
+    {
+      "name": "Stefan Kolb",
+      "email": "dev@stefankolb.de",
+      "web": "https://stefankolb.de"
+    }
+  ],
+  "repositories": [
+    {
+      "type": "git",
+      "url": "https://github.com/stefankolb/baseset.git"
+    }
+  ]
+}
