@@ -39,6 +39,7 @@
     "eslint-plugin-react": "7.23.2",
     "husky": "6.0.0",
     "http-server": "0.12.3",
+    "jest": "27.0.3",
     "jsdoc": "3.6.7",
     "lint-staged": "11.0.0",
     "livereload": "0.9.3",
@@ -56,6 +57,7 @@
     "docs:develop:sass:reload": "livereload ./docs/sass/ -w 500",
     "docs:develop:sass:serve": "http-server ./docs/sass -p 3002 -o -s",
     "docs:develop:sass:watch": "nodemon --exec 'rm -rf sass/docs && sassdoc src/sass/ -c .sassdocrc.json' -e scss --watch src",
-    "postinstall": "patch-package"
+    "postinstall": "patch-package",
+    "test": "jest"
   }
 }
