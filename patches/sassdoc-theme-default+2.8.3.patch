@@ -1,0 +1,18 @@
+diff --git a/node_modules/sassdoc-theme-default/views/includes/partials/livereload.html.njk b/node_modules/sassdoc-theme-default/views/includes/partials/livereload.html.njk
+new file mode 100644
+index 0000000..9809391
+--- /dev/null
++++ b/node_modules/sassdoc-theme-default/views/includes/partials/livereload.html.njk
+@@ -0,0 +1 @@
++<script src="http://127.0.0.1:35729/livereload.js?snipver=1"></script>
+diff --git a/node_modules/sassdoc-theme-default/views/layouts/base.html.njk b/node_modules/sassdoc-theme-default/views/layouts/base.html.njk
+index b24ff4c..3a94802 100644
+--- a/node_modules/sassdoc-theme-default/views/layouts/base.html.njk
++++ b/node_modules/sassdoc-theme-default/views/layouts/base.html.njk
+@@ -39,5 +39,6 @@
+ 
+   {# Include scripts #}
+   {% include "../includes/partials/scripts.html.njk" %}
++  {% include '../includes/partials/livereload.html.njk' %}
+ </body>
+ </html>

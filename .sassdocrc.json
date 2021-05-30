@@ -1,0 +1,7 @@
+{
+  "dest": "./docs/sass/",
+  "groups": {
+    "baseset": "Base Set"
+  },
+  "package": "./package.json"
+}

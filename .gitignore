@@ -8,3 +8,6 @@ yarn-*.log
 
 # IDE
 .vscode
+
+# Source code documentation
+docs/

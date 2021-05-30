@@ -1,0 +1,43 @@
+{
+  "opts": {
+    "template": "./node_modules/docdash/",
+    "encoding": "utf8",
+    "destination": "./docs/api/",
+    "recurse": true,
+    "private": true
+  },
+  "plugins": [
+    "plugins/markdown"
+  ],
+  "recurseDepth": 10,
+  "source": {
+    "include": [
+      "./src/",
+      "./README.md"
+    ],
+    "exclude": [
+      "./node_modules"
+    ],
+    "includePattern": ".+\\.js(doc|x)?$"
+
+  },
+  "sourceType": "module",
+  "tags": {
+    "allowUnknownTags": true
+  },
+  "templates": {
+    "cleverLinks": false,
+    "monospaceLinks": true
+  },
+  "docdash": {
+    "collapse": true,
+    "meta": {
+      "description": "Organize your sports trading card collection",
+      "title": "Base Set"
+    },
+    "scripts": [
+      "http://127.0.0.1:35729/livereload.js?snipver=1"
+    ],
+    "search": true
+  }
+}

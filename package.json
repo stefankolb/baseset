@@ -32,11 +32,30 @@
     "@babel/preset-react": "7.13.13",
     "@commitlint/cli": "12.1.4",
     "@commitlint/config-conventional": "12.1.4",
+    "concurrently": "6.2.0",
+    "docdash": "1.2.0",
     "eslint": "7.27.0",
     "eslint-plugin-jsdoc": "35.0.0",
     "eslint-plugin-react": "7.23.2",
     "husky": "6.0.0",
+    "http-server": "0.12.3",
+    "jsdoc": "3.6.7",
     "lint-staged": "11.0.0",
-    "sass-lint": "1.13.1"
+    "livereload": "0.9.3",
+    "nodemon": "2.0.7",
+    "patch-package": "6.4.7",
+    "sass-lint": "1.13.1",
+    "sassdoc": "2.7.3"
+  },
+  "scripts": {
+    "docs:develop:api": "concurrently -n WATCH,SERVE,RELOAD -c bgGreen.bold,bgBlue.bold,bgMagenta.bold \"yarn:docs:api:watch\" \"yarn:docs:api:serve\" \"yarn:docs:api:reload\"",
+    "docs:develop:api:watch": "nodemon --exec 'jsdoc -c .jsdocrc.json' -e md,js,jsdoc --watch src --watch README.md",
+    "docs:develop:api:reload": "livereload ./docs/api/",
+    "docs:develop:api:serve": "http-server ./docs/api -p 3001 -o",
+    "docs:develop:sass": "concurrently -n WATCH,SERVE,RELOAD -c bgGreen.bold,bgBlue.bold,bgMagenta.bold \"yarn:docs:develop:sass:watch\" \"yarn:docs:develop:sass:serve\" \"yarn:docs:develop:sass:reload\"",
+    "docs:develop:sass:reload": "livereload ./docs/sass/ -w 500",
+    "docs:develop:sass:serve": "http-server ./docs/sass -p 3002 -o -s",
+    "docs:develop:sass:watch": "nodemon --exec 'rm -rf sass/docs && sassdoc src/sass/ -c .sassdocrc.json' -e scss --watch src",
+    "postinstall": "patch-package"
   }
 }
