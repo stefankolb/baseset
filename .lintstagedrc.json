@@ -1,5 +1,8 @@
 {
   "*.js": [
     "eslint -c .eslintrc-commit.json"
+  ],
+  "*.s+(a|c)ss": [
+    "sass-lint -v -q -c .sasslintrc-commit"
   ]
 }
