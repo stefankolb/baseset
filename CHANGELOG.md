@@ -8,6 +8,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 The version numbers provide a link to all code changes on GitHub.
 
 
+## [Unreleased] - TBD
+
+
 ## [v0.0.0] - 2020-05-30
 
 * Project setup: Sets everything up to get development underway: Commit message
@@ -19,4 +22,5 @@ The version numbers provide a link to all code changes on GitHub.
 
 [//]: # "References"
 
+[Unreleased]: https://github.com/stefankolb/baseset/compare/v0.0.0...main
 [v0.0.0]: https://github.com/stefankolb/baseset/compare/397f26fbc2a648d9f327a7862e1b094735ff9c17...v0.0.0

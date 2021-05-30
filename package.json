@@ -1,7 +1,7 @@
 {
   "name": "baseset",
   "productName": "Base Set",
-  "version": "0.0.0",
+  "version": "0.1.0-dev",
   "description": "Organize your sports trading card collection",
   "private": true,
   "keywords": [
