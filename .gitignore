@@ -11,3 +11,9 @@ yarn-*.log
 
 # Source code documentation
 docs/
+
+# Build artifacts
+build/
+
+# Misc.
+*.pem

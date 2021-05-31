@@ -1,0 +1,39 @@
+////
+/// ██████╗  █████╗ ███████╗███████╗    ███████╗███████╗████████╗
+/// ██╔══██╗██╔══██╗██╔════╝██╔════╝    ██╔════╝██╔════╝╚══██╔══╝
+/// ██████╔╝███████║███████╗█████╗      ███████╗█████╗     ██║
+/// ██╔══██╗██╔══██║╚════██║██╔══╝      ╚════██║██╔══╝     ██║
+/// ██████╔╝██║  ██║███████║███████╗    ███████║███████╗   ██║
+/// ╚═════╝ ╚═╝  ╚═╝╚══════╝╚══════╝    ╚══════╝╚══════╝   ╚═╝
+///
+/// Base file of the Base Set's default theme
+///
+/// Theme is heavily based on the free Volt React Dashboard theme
+/// (https://themesberg.com/product/dashboard/volt-react)
+////
+
+// -----------------------------------------------------------------------------
+// IMPORTS
+// -----------------------------------------------------------------------------
+
+@import 'normalize';
+@import 'theme-default-variables';
+
+
+// -----------------------------------------------------------------------------
+// BASE SETTINGS
+// -----------------------------------------------------------------------------
+
+// Create a base for all browsers
+// (s. https://necolas.github.io/normalize.css)
+@include normalize();
+
+// We want a natural box layout model for all elements
+// http://www.paulirish.com/2012/box-sizing-border-box-ftw/
+*,
+*::before,
+*::after {
+  border: 0;
+  box-sizing: border-box;
+  outline: 0;
+}
