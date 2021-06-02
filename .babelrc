@@ -1,4 +1,21 @@
 {
+  "plugins": [
+    [
+      "babel-plugin-root-import",
+      {
+        "paths": [
+          {
+            "rootPathSuffix": "./src/",
+            "rootPathPrefix": "~/"
+          },
+          {
+            "rootPathSuffix": "./src/utils/",
+            "rootPathPrefix": "~utils/"
+          }
+        ]
+      }
+    ]
+  ],
   "presets": [
     "@babel/preset-env",
     "@babel/preset-react"

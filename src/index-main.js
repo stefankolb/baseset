@@ -19,6 +19,9 @@ const {
   BrowserWindow
 } = require('electron');
 
+// Internal dependencies
+import log from '~utils/logger/logger';
+
 
 // -----------------------------------------------------------------------------
 // CONFIGURATION
@@ -68,4 +71,5 @@ const createWindow = function createWindow() {
   }
 };
 
+log.info('Initializing main process', { tag: 'app' });
 app.on('ready', createWindow);

@@ -32,6 +32,7 @@
     "@babel/preset-env": "7.14.4",
     "@babel/preset-react": "7.13.13",
     "babel-loader": "8.2.2",
+    "babel-plugin-root-import": "6.6.0",
     "@commitlint/cli": "12.1.4",
     "@commitlint/config-conventional": "12.1.4",
     "concurrently": "6.2.0",
@@ -63,13 +64,16 @@
     "webpack-dev-server": "3.11.2",
     "webpack-electron-reload": "1.0.1"
   },
+  "dependencies": {
+    "loglevel": "1.7.1"
+  },
   "scripts": {
     "develop:bundle:main": "webpack --config config/webpack.develop.main.js",
     "develop:bundle:main:server": "webpack --config config/webpack.develop.main.js --watch",
     "develop:bundle:render": "webpack --config config/webpack.develop.render.js",
     "develop:bundle:render:server": "webpack serve --config config/webpack.develop.render-server.js",
     "develop:start": "concurrently -n MAIN,RENDER -c bgGreen.bold,bgBlue.bold \"yarn:develop:bundle:main:server\" \"yarn:develop:bundle:render:server\"",
-    "docs:develop:api": "concurrently -n WATCH,SERVE,RELOAD -c bgGreen.bold,bgBlue.bold,bgMagenta.bold \"yarn:docs:api:watch\" \"yarn:docs:api:serve\" \"yarn:docs:api:reload\"",
+    "docs:develop:api": "concurrently -n WATCH,SERVE,RELOAD -c bgGreen.bold,bgBlue.bold,bgMagenta.bold \"yarn:docs:develop:api:watch\" \"yarn:docs:develop:api:serve\" \"yarn:docs:develop:api:reload\"",
     "docs:develop:api:watch": "nodemon --exec 'jsdoc -c .jsdocrc.json' -e md,js,jsdoc --watch src --watch README.md",
     "docs:develop:api:reload": "livereload ./docs/api/",
     "docs:develop:api:serve": "http-server ./docs/api -p 3001 -o",
