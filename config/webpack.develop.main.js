@@ -29,6 +29,8 @@ const PATHS = require('./paths');
 // WEBPACK CONFIGURATION
 // -----------------------------------------------------------------------------
 
+const isInWatchMode = process.argv.findIndex(item => item === '--watch') > -1;
+
 module.exports = {
   devtool: 'eval-cheap-module-source-map',
 
@@ -62,7 +64,9 @@ module.exports = {
   },
 
   plugins: [
-    ElectronReloadPlugin()
+    /* eslint-disable no-empty-function */
+    ( isInWatchMode ? ElectronReloadPlugin() : () => { } )
+    /* eslint-enable no-empty-function */
   ],
 
   target: 'electron-main'
