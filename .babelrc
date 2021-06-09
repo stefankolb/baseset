@@ -9,12 +9,21 @@
             "rootPathPrefix": "~/"
           },
           {
+            "rootPathSuffix": "./src/database/",
+            "rootPathPrefix": "~database/"
+          },
+          {
+            "rootPathSuffix": "./src/services/",
+            "rootPathPrefix": "~services/"
+          },
+          {
             "rootPathSuffix": "./src/utils/",
             "rootPathPrefix": "~utils/"
           }
         ]
       }
-    ]
+    ],
+    "@babel/plugin-transform-runtime"
   ],
   "presets": [
     "@babel/preset-env",

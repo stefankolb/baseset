@@ -5,77 +5,57 @@
  * ██╔══██╗██╔══██║╚════██║██╔══╝      ╚════██║██╔══╝     ██║
  * ██████╔╝██║  ██║███████║███████╗    ███████║███████╗   ██║
  * ╚═════╝ ╚═╝  ╚═╝╚══════╝╚══════╝    ╚══════╝╚══════╝   ╚═╝
- *
- * Webpack configuration for the Electron main process files
  */
+
+/* eslint-disable sort-keys, jsdoc/no-undefined-types */
 
 // -----------------------------------------------------------------------------
 // IMPORTS
 // -----------------------------------------------------------------------------
 
 // External/Third-party dependencies
-const path = require('path');
-const ElectronReloadPlugin = require('webpack-electron-reload')({
-  // @FIXME This is available in PATHS, but plugin does not allow later init :(
-  path: path.join(__dirname, './../build/develop/index-main.js')
-});
-
-// Internal dependencies
-require('./env.develop');
-const PATHS = require('./paths');
+import { Model } from 'sequelize';
 
 
 // -----------------------------------------------------------------------------
-// WEBPACK CONFIGURATION
+// CARD MODEL
 // -----------------------------------------------------------------------------
 
-const isInWatchMode = process.argv.findIndex(item => item === '--watch') > -1;
+/**
+ * Model definition for a single card
+ *
+ * @param {Sequelize} sequelize A Sequelize instance
+ * @param {object} DataTypes Sequelize data types
+ * @returns {Sequelize.Model} The Card model
+ */
+export default (sequelize, DataTypes) => {
+  class Card extends Model {
 
-module.exports = {
-  devtool: 'eval-cheap-module-source-map',
-
-  entry: {
-    'index-main': [
-      path.join(PATHS.DIRS.SOURCE, PATHS.FILES.JS_PROCESS_MAIN)
-    ]
-  },
-
-  externals: [
-    'pg',
-    'pg-hstore',
-    {
-      sqlite3: 'commonjs sqlite3'
+    static associate(models) {
+      Card.belongsTo(models.Player, {
+        foreignKey: 'player_id'
+      });
+      Card.belongsTo(models.Series, {
+        foreignKey: 'series_id'
+      });
     }
-  ],
 
-  mode: process.env.NODE_ENV,
+  }
 
-  module: {
-    rules: [
-      // Transpile JavaScript
-      {
-        exclude: [ /node_modules/ ],
-        include: PATHS.DIRS.SOURCE,
-        test: /\.(js|jsx)$/,
-        use: [
-          'babel-loader'
-        ]
-      }
-    ]
-  },
+  Card.init({
+    number: {
+      allowNull: false,
+      type: DataTypes.INTEGER
+    },
+    count: {
+      defaultValue: 1,
+      type: DataTypes.INTEGER
+    }
+  }, {
+    modelName: 'Card',
+    sequelize,
+    tableName: 'cards'
+  });
 
-  output: {
-    filename: '[name].js',
-    globalObject: 'this',
-    path: PATHS.DIRS.BUILD_DEVELOP,
-    publicPath: '/'
-  },
-
-  plugins: [
-    /* eslint-disable no-empty-function */
-    ( isInWatchMode ? ElectronReloadPlugin() : () => { } )
-    /* eslint-enable no-empty-function */
-  ],
-
-  target: 'electron-main'
+  return Card;
 };

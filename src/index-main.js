@@ -20,7 +20,12 @@ const {
 } = require('electron');
 
 // Internal dependencies
+import {
+  APP,
+  ERROR
+} from '~/constants';
 import log from '~utils/logger/logger';
+import { initORM, initORMModels } from '~services/orm/orm';
 
 
 // -----------------------------------------------------------------------------
@@ -35,18 +40,30 @@ if (fs.existsSync(pathPackageJSON)) {
 
   appName = packageJSON.productName || packageJSON.name;
   app.setName(appName);
+  app.setPath('userData', path.join(app.getPath('appData'), appName));
+  app.setPath('cache', path.join(app.getPath('cache'), appName));
+  app.setPath('logs', path.join(app.getPath('logs'), appName));
 }
 const appVersion = process.env.npm_package_version;
 
-// Reference to the main app window
+/**
+ * Reference to the main application window
+ *
+ * @type {BrowserWindow}
+ */
 let win;
 
 
 // -----------------------------------------------------------------------------
-// INIT
+// WINDOW MANAGEMENT
 // -----------------------------------------------------------------------------
 
-const createWindow = function createWindow() {
+/**
+ * Creates the main application window and loads the webpage to display.
+ *
+ * NOTE: Only a valid approach during development.
+ */
+const createMainAppWindow = () => {
   win = new BrowserWindow({
     height: 960,
     title: `${appName} v${appVersion}`,
@@ -71,5 +88,26 @@ const createWindow = function createWindow() {
   }
 };
 
-log.info('Initializing main process', { tag: 'app' });
-app.on('ready', createWindow);
+
+// -----------------------------------------------------------------------------
+// APPLICATION START
+// -----------------------------------------------------------------------------
+
+app.whenReady().then(
+  () => {
+    log.info('Electron is ready -> initializing main process', { tag: 'app' });
+
+    const pathUserData = app.getPath('userData');
+    const orm = initORM(`${pathUserData}${APP.DB_PATH}${APP.DB_FILE}`);
+    if (orm) {
+      initORMModels().then(
+        () => {
+          createMainAppWindow();
+        },
+        () => {
+          log.error(ERROR.APP.INIT_FAIL);
+        }
+      );
+    }
+  }
+);

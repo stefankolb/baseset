@@ -29,6 +29,7 @@
   "devDependencies": {
     "@babel/core": "7.14.3",
     "@babel/eslint-parser": "7.14.4",
+    "@babel/plugin-transform-runtime": "7.14.3",
     "@babel/preset-env": "7.14.4",
     "@babel/preset-react": "7.13.13",
     "babel-loader": "8.2.2",
@@ -65,7 +66,9 @@
     "webpack-electron-reload": "1.0.1"
   },
   "dependencies": {
-    "loglevel": "1.7.1"
+    "loglevel": "1.7.1",
+    "sequelize": "6.6.2",
+    "sqlite3": "5.0.2"
   },
   "scripts": {
     "develop:bundle:main": "webpack --config config/webpack.develop.main.js",

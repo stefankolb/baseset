@@ -8,7 +8,7 @@
  */
 
 /**
- * @module logger
+ * @module utils/logger
  *
  * @description
  * Configuration for loglevel.
@@ -43,7 +43,7 @@ log.methodFactory = (methodName, logLevel, loggerName) => {
     // If a tag property has been provided, we use it as marker for the
     // log output
     const lastMessage = args[args.length - 1];
-    if (lastMessage.constructor === Object) {
+    if (lastMessage && lastMessage.constructor === Object) {
       if (lastMessage.tag) {
         messages.push(`[${lastMessage.tag}]`);
         delete lastMessage.tag;

@@ -5,6 +5,12 @@
       "~/*": [
         "src/*"
       ],
+      "~database/*": [
+        "src/database/*"
+      ],
+      "~services/*": [
+        "src/services/*"
+      ],
       "~utils/*": [
         "src/utils/*"
       ]
